@@ -380,4 +380,4 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         name: patch_$LATEST_VERSION
-        path: ./publish/$LATEST_VERSION/
+        path: ./publish/$LATEST_VERSION/*.npk
