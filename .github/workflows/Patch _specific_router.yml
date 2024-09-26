@@ -1,5 +1,5 @@
 name: Patch Specific RouterOS 7.x
-on:
+#on:
   # push:
   #   branches: [ "main" ]
   #schedule:
