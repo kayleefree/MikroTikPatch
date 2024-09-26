@@ -1,5 +1,4 @@
-name: Patch Mikrotik RouterOS 6.x
-
+name: Test secrets variable
 on:
   # push:
   #   branches: [ "main" ]
