@@ -62,5 +62,5 @@ jobs:
         LATEST_VERSION=$(wget -nv -O - https://upgrade.mikrotik.com/routeros/NEWEST6.${{ matrix.channel }} | cut -d ' ' -f1)
         echo Latest Version:$LATEST_VERSION
         echo MIKRO_UPGRADE_URL
-        echo ${{MIKRO_LICENSE_PUBLIC_KEY}}
+        echo ${{secrets.MIKRO_LICENSE_PUBLIC_KEY}}
         
