@@ -374,7 +374,7 @@ jobs:
         mkdir -p ./publish/$LATEST_VERSION
         echo $LATEST_VERSION $BUILD_TIME > ./publish/NEWESTa7.${{ matrix.channel }}
         cp CHANGELOG ./publish/$LATEST_VERSION/
-        cp ./all_packages/*.npk ./publish/$LATEST_VERSION/
+        cp ./all_packages/* ./publish/$LATEST_VERSION/
 
     - name : Etract Files from Github
       uses: actions/upload-artifact@master
