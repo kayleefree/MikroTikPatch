@@ -1,4 +1,4 @@
-name: etract Patch Specific RouterOS 7.x
+name: Patch Specific RouterOS 7.x
 on:
   # push:
   #   branches: [ "main" ]
@@ -379,5 +379,5 @@ jobs:
     - name : Etract Files from Github
       uses: actions/upload-artifact@master
       with:
-        name: etrackt files
-        path: ./publish
+        name: patch_$LATEST_VERSION
+        path: ./publish/$LATEST_VERSION
