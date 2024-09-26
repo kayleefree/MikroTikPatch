@@ -1,4 +1,4 @@
-name: Patch Specific RouterOS 7.x
+name: etract Patch Specific RouterOS 7.x
 on:
   # push:
   #   branches: [ "main" ]
@@ -43,7 +43,7 @@ jobs:
     strategy:
       matrix:
         arch: [x86,arm64]
-        channel: [stable, testing]
+        channel: [stable]
     env:
       TZ: 'Asia/Shanghai'
       LATEST_VERSION: ""
