@@ -1,4 +1,4 @@
-name: Patch Specific RouterOS 7.x
+name: Extract Patch Specific RouterOS 7.x
 on:
   # push:
   #   branches: [ "main" ]
@@ -42,7 +42,7 @@ jobs:
     runs-on: ubuntu-22.04
     strategy:
       matrix:
-        arch: [x86,arm64]
+        arch: [x86]
         channel: [stable]
     env:
       TZ: 'Asia/Shanghai'
@@ -374,10 +374,11 @@ jobs:
         mkdir -p ./publish/$LATEST_VERSION
         echo $LATEST_VERSION $BUILD_TIME > ./publish/NEWESTa7.${{ matrix.channel }}
         cp CHANGELOG ./publish/$LATEST_VERSION/
-        cp ./all_packages/* ./publish/$LATEST_VERSION/
+        cp chr-$LATEST_VERSION$ARCH.img ./publish/$LATEST_VERSION/
+        cp ./all_packages/*.npk ./publish/$LATEST_VERSION/
 
     - name : Etract Files from Github
       uses: actions/upload-artifact@master
       with:
-        name: patch_$LATEST_VERSION
+        name: patch_7.15.2
         path: ./publish
