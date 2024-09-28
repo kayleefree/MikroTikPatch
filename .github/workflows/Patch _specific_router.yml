@@ -1,4 +1,4 @@
-name: Patch Specific RouterOS 7.x
+name: Fetch Patch Specific RouterOS 7.x
 on:
   # push:
   #   branches: [ "main" ]
@@ -64,7 +64,7 @@ jobs:
         echo $(uname -a)
         LATEST_VERSION=$(wget -nv -O - https://${{ env.MIKRO_UPGRADE_URL }}/routeros/NEWESTa7.${{ matrix.channel }} | cut -d ' ' -f1)
         echo Latest Version:$LATEST_VERSION
-        LATEST_VERSION=7.15.2
+        LATEST_VERSION=7.15.3
         echo "has_new_version=true" >> $GITHUB_OUTPUT
         BUILD_TIME=${{ needs.Set_BuildTime.outputs.BUILD_TIME }}
         echo Build Time:$BUILD_TIME
@@ -374,13 +374,14 @@ jobs:
         mkdir -p ./publish/$LATEST_VERSION
         echo $LATEST_VERSION $BUILD_TIME > ./publish/NEWESTa7.${{ matrix.channel }}
         cp CHANGELOG ./publish/$LATEST_VERSION/
+        cp netinstall-$LATEST_VERSION.zip ./publish/$LATEST_VERSION/
         cp chr-$LATEST_VERSION$ARCH.img.zip ./publish/$LATEST_VERSION/
         cp chr-$LATEST_VERSION$ARCH.vmdk.zip ./publish/$LATEST_VERSION/
         cp chr-$LATEST_VERSION$ARCH.qcow2.zip ./publish/$LATEST_VERSION/
         cp ./all_packages/*.npk ./publish/$LATEST_VERSION/
 
-    - name : Etract Files from Github
+    - name : Extract_patch_7.15.3
       uses: actions/upload-artifact@master
       with:
-        name: patch_7.15.2
+        name: patch_7.15.3
         path: ./publish
