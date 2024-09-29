@@ -265,7 +265,8 @@ jobs:
           > syslinux.cfg
         sudo cp syslinux.cfg ./install/
         sudo rm syslinux.cfg
-        sudo cp ./BOOTX64.EFI ./install/linux
+        sudo cp ./install/EFI/BOOT/BOOTX64.EFI ./install/linux
+        #sudo cp ./BOOTX64.EFI ./install/linux
         NPK_FILES=($(find ./all_packages/*.npk))
         for ((i=1; i<=${#NPK_FILES[@]}; i++))
         do
